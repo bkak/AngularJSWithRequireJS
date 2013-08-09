@@ -1,0 +1,9 @@
+<div class="well" ng-controller="salesListController">
+    <h1>Sales List</h1>
+    <ul>
+        <li ng-repeat="sale in sales">
+            <p>{{sale.Customer}} - {{sale.Number}}</p>
+            <p><a href="/#/edit/{{sale.Id}}">Edit</a></p>
+        </li>
+    </ul>
+</div>

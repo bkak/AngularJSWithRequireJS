@@ -1,0 +1,21 @@
+<form name="salesedit" ng-submit="save()" class="form-horizontal" ng-controller="editController">
+<div class="well" >
+    <h1>Sales</h1>
+    <p></p>
+    <div>
+        <label>Id</label>
+        <input type="text" ng-model="Id" />
+        <label>Number</label>
+        <input type="text" value="{{Number()}}" />
+        <label>Date</label>
+        <input type="text" ng-model="Date" />
+        <label>TotalAmount</label>
+        <input type="text" ng-model="TotalAmount"/>
+        <label>Customer</label>
+        <input type="text" ng-model="Customer"/>
+        <button class="btn btn-primary">Submit</button>
+        <p><a href="/">Back</a></p>
+    </div>
+    <h3></h3>
+
+</div>

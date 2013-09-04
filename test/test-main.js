@@ -25,6 +25,7 @@
             'appModule': '/base/app/scripts/appModule',
             'appRoutes':'/base/app/scripts/appRoutes',
             'services/dependencyResolverFor':'/base/app/scripts/services/dependencyResolverFor',
+            'appConfigProvider' : '/base/app/scripts/appConfigProvider',
             'salesListController' : '/base/app/scripts/controllers/salesListController'
         },
         shim:{
@@ -44,7 +45,11 @@
             'angularMocks': {
                 deps: ['angularResource'],
                 exports: 'angularMocks'
-            } ,
+            },
+            'appConfigProvider': {
+                deps: ['appModule'],
+                exports: 'appConfigProvider'
+            },
             'salesListController': {
                 deps: ['appModule'],
                 exports: 'salesListController'

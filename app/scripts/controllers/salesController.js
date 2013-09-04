@@ -1,7 +1,7 @@
 'use strict';
 
 define(['appModule'], function(myApp){
-    myApp.lazy.controller('editController', ['$scope', '$location', 'getSale', function ($scope, $location,getSale) {
+    myApp.controller('editController', ['$scope', '$location', 'getSale', function ($scope, $location,getSale) {
          getSale().then(function(val){
             $scope.Id = val.Id;
             $scope.Number = function() { return $scope.Id + 10;};
@@ -33,3 +33,5 @@ myApp.lazy.controller('newController', ['$scope', '$location', 'getSale', functi
         });
     };
 }]);
+
+*/

@@ -38,12 +38,7 @@ define([], function()
                     'services/salesService',
                     'controllers/salesListController',
                     'directives/appDirective'
-                ],
-                resolve: {
-                    sales: function(getAllSales) {
-                        return getAllSales();
-                    }
-                }
+                ]
             }
         }
     }

@@ -1,16 +1,26 @@
 'use strict';
-define(['appModule','angular', 'angularResource', 'angularMocks','salesListController'],
+define(['appModule','angular', 'angularResource', 'angularMocks','appConfigProvider', 'salesListController'],
     function(app, angular, angularResource, angularMocks, saleslstCtrl) {
 
 describe('SalesListController1', function(){
 
     beforeEach(module('AngularSampleBhoomiApp'));
+
+    beforeEach(inject(function(configService){
+        var cg = configService;
+        console.log(cg);
+    }));
+
+   // beforeEach(function() {
+   //     SalesLstCtrl();
+   // });
     var SalesListController, scope;
    // dependencyresolverfor([ 'services/salesService','controllers/salesListController']);
     var sales = [{Customer:"A1",Number:1,Id:1},{Customer:"B1",Number:2,Id:2}];
 
     beforeEach(inject(function($controller, $rootScope,$injector){
         scope = $rootScope.$new();
+        $rootScope.$digest();
         //console.log($controller('salesListController',{$scope:scope, getAllSalesResolved:sales}));
         //var serv = $injector.get('salesService');
        // var a = app.controller('salesListController', {$scope:scope, getAllSalesResolved:sales});
@@ -27,4 +37,5 @@ describe('SalesListController1', function(){
     });
     */
 });
-});
+    });
+

@@ -71,7 +71,6 @@ module.exports = function(config) {
     captureTimeout: 60000,
       plugins: [
           'karma-requirejs',
-          'karma-junit-reporter',
           'karma-jasmine',
           'karma-firefox-launcher'
       ],

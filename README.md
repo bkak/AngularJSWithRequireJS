@@ -1,4 +1,3 @@
-angularjs-book
-==============
+Example of AngularJS + RequireJS + Karma.
 
-Examples and Code snippets from the AngularJS O'Reilly book
+Run the test cases in karma

@@ -23,14 +23,10 @@ define([], function()
             '/edit/:Id': {
                 templateUrl: 'views/SalesEdit.html',
                     dependencies: [
+                        'services/salesService',
                         'controllers/salesController',
                         'directives/appDirective'
-                    ],
-                resolve: {
-                    sale: function(getSale) {
-                        return getSale();
-                    }
-                }
+                    ]
             },
             '/list': {
                 templateUrl: 'views/saleslist.html',

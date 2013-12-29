@@ -5,6 +5,6 @@ require.config({
 
 require
     (['appModule' ],function(app){
-            angular.bootstrap(document, ['AngularSampleBhoomiApp']);
+            angular.bootstrap(document, ['AngularSampleApp']);
         }
     );

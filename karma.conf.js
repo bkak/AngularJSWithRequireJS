@@ -19,12 +19,13 @@ module.exports = function(config) {
         'app/bower_components/angular-mocks/angular-mocks.js',
         {pattern: 'app/scripts/*.js', included: false},
         {pattern: 'app/scripts/**/*.js', included: false},
+        {pattern: 'test/spec/lazyMock.js', included: false},
         {pattern: 'test/spec/controllers/salesListControllertest.js', included: false},
+        {pattern: 'test/spec/controllers/salesControllertest.js', included: false},
         'app/scripts/services/dependencyResolverFor.js',
        // 'app/scripts/appModule.js',
         //'/app/scripts/controllers/salesListController.js',
         'test/test-main.js'
-
     ],
 
 

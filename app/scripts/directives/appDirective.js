@@ -2,7 +2,6 @@
 
 
 define(['appModule'],  function(myApp){
-//angular.module('AngularSampleBhoomiApp')
     myApp.directive('appDirective', function () {
     return {
       template: '<div></div>',

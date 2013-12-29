@@ -28,15 +28,15 @@ app.get('/sales/:Id', function(req, res){
     {
         val ={};
     }
-    res.send(val);
+    res.send(val);00
 });
 app.post('/sales', function(req, res){
     if(sales ){
     sales.push({ Customer : req.params.Customer,
                  Number: req.params.Number,
                  Id : req.params.Id,
-                 TotalAmount: req.params.TotalAmount,
-                  Date: req.params.Date});
+                 TotalAmount: req.params.TotalAmount
+                  });
     }
     res.send('success');
 });

@@ -1,37 +1,21 @@
-'use strict';
+define(['appModule','services/salesService'], function(myApp){
+    myApp.lazy.controller('editController', ['$scope', '$location', 'getSale','SaleRepo', '$route',
+        function ($scope, $location, getSale, saleRepo, $route) {
+        var saleRepo = saleRepo;
 
-define(['appModule'], function(myApp){
-    myApp.controller('editController', ['$scope', '$location', 'getSale', function ($scope, $location,getSale) {
-         getSale().then(function(val){
-            $scope.Id = val.Id;
-            $scope.Number = function() { return $scope.Id + 10;};
-            $scope.Date = val.Date;
-            $scope.TotalAmount =val.TotalAmount;
-            $scope.Customer= val.Customer;
-             $scope.sale= val;
+        getSale($route.current.params.Id || 0).then(function(sale){
+            $scope.Id = sale.Id;
+            $scope.Number = sale.Number;
+            $scope.TotalAmount =sale.TotalAmount;
+            $scope.Customer= sale.Customer;
+            $scope.sale= sale;
+
         });
-
         $scope.save = function(){
-            $scope.sale.$save(function(sale) {
+            saleRepo.save(function(sale) {
                 $location.path('/list');
             });
         };
     }]);
+    return myApp;
 });
-
-/*
-myApp.lazy.controller('newController', ['$scope', '$location', 'getSale', function ($scope, $location, getSale) {
-    $scope.sale = getSale();
-    $scope.Id = 9;
-    $scope.Number = function() { return $scope.Id + 10;};
-    $scope.Date = Date.now();
-    $scope.TotalAmount =0;
-    $scope.Customer="";
-    $scope.save = function(){
-        $scope.sale.$save(function(sale) {
-            $location.path('/list');
-        });
-    };
-}]);
-
-*/

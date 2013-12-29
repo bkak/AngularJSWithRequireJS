@@ -16,17 +16,13 @@ define(['appModule'], function(myApp){
             };
         }
     ]);
-    myApp.lazy.service('getAllSalesResolved', ['getAllSales','$q', '$rootScope', function(getallsales,$q, $rootScope){
-       return getallsales();
-       //return $q.when(getallsales).then(function(data){return data});
-       // getallsales();
-        //$rootScope.$apply();
-
-    }]);
+    //myApp.lazy.service('getAllSalesResolved', ['getAllSales','$q', '$rootScope', function(getallsales,$q, $rootScope){
+    //   return getallsales();
+    //}]);
     myApp.lazy.factory('getSale', ['SaleRepo', '$route', '$q', function (SaleRepo, $route,$q) {
-        return function() {
+        return function(id) {
             var delay = $q.defer();
-            SaleRepo.get({id: $route.current.params.Id || 0},function(sale) {
+            SaleRepo.get({id: id},function(sale) {
                 delay.resolve(sale);
             }, function() {
                 delay.reject('Unable to fetch sales');
@@ -35,13 +31,7 @@ define(['appModule'], function(myApp){
         };
     }
     ]);
+    myApp.lazy.service('getSaleResolved', ['getSale','$q', '$rootScope', function(getSale,$q, $rootScope){
+        return getSale();
+    }]);
 });
-
-/* angular.module('AngularSampleBhoomiApp.services')
- .service('createSale', function createSale(sale) {
- sales.push(sale);
- }
- .service('getAll', function getAll() {
- return sales;
- }));
- */

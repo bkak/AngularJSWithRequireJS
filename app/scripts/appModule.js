@@ -1,10 +1,6 @@
 define(['appRoutes','services/dependencyResolverFor'], function(config, dependencyResolverFor)
 {
-    var app = angular.module('AngularSampleBhoomiApp', ['ngResource']);
-    //Here the controllerProvider's are set in lazy.controller, when running the app through firefox it calls config and the providers are set
-    //While in unit test this is not being called and hence no controllers are initialized.
-    //Trying overcome this issue I tried creating appConfigProvider. A service which will register the controllerprovider in the app.
-    //How and where to call this service?
+    var app = angular.module('AngularSampleApp', ['ngResource']);
     app.config(
         [
             '$routeProvider',

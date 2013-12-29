@@ -5,37 +5,30 @@
 
     for (file in window.__karma__.files) {
         if (window.__karma__.files.hasOwnProperty(file)) {
-           // console.log('loaded file'+ file);
-            if (file.substring(file.length - 26, file.length) === 'salesListControllertest.js') {
-                console.log('Added file to testing..');
-                requireModules.push(file);
+            if (file.substring(file.length - 26, file.length) === 'salesListControllertest.js' ||
+                file.substring(file.length - 22, file.length) === 'salesControllertest.js') {
+                    console.log('Added file to testing..'+ file);
+                    requireModules.push(file);
             }
         }
     }
-
-    //requireModules.push('appModule');
-    //requireModules.push('mocks');
-    deps: requireModules,
     require({
         baseUrl: '',
         paths:{
             'angular': '/base/app/bower_components/angular/angular',
             'angularResource': '/base/app/bower_components/angular-resource/angular-resource',
             'angularMocks': '/base/app/bower_components/angular-mocks/angular-mocks',
-            'appModule': '/base/app/scripts/appModule',
-            'appRoutes':'/base/app/scripts/appRoutes',
-            'services/dependencyResolverFor':'/base/app/scripts/services/dependencyResolverFor',
+            'appModule': '/base/test/spec/lazyMock',
             'appConfigProvider' : '/base/app/scripts/appConfigProvider',
-            'salesListController' : '/base/app/scripts/controllers/salesListController'
+            'services/salesService' : '/base/app/scripts/services/salesService',
+            'salesListController' : '/base/app/scripts/controllers/salesListController',
+            'salesController' : '/base/app/scripts/controllers/salesController'
         },
         shim:{
             'angular' :{
                 exports:'angular'
             },
-            'appRoutes': {exports:'appRoutes'},
-            'services/dependencyResolverFor' : {exports:'services/dependencyResolverFor'},
             'appModule': {
-                deps: ['appRoutes', 'services/dependencyResolverFor'],
                 exports: 'appModule'
             },
             'angularResource': {
@@ -50,9 +43,17 @@
                 deps: ['appModule'],
                 exports: 'appConfigProvider'
             },
+            'services/salesService' : {
+                deps: ['appModule'],
+                exports: 'services/salesService'
+            },
             'salesListController': {
                 deps: ['appModule'],
                 exports: 'salesListController'
+            },
+            'salesController': {
+                deps: ['appModule'],
+                exports: 'salesController'
             }
         }
     }, requireModules, function () {

@@ -1,6 +1,7 @@
 Example of AngularJS + RequireJS + Karma.
 
 Integrating RequireJS was tricky. 
+second time
 
 Run the test cases in karma.
 
